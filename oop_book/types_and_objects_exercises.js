@@ -1,62 +1,67 @@
-// PROBLEM 1
+// Problem 1
 // let cessna152 = {
 //   fuelCapacityInGallons: 24.5,
 //   cruisingSpeedInKnots: 111,
 
-//   takeOff() {
-//     console.log("Taking off!");
+//   takeOff: function() {
+//     console.log(`The plane is taking off.`);
 //   },
 
-//   land() {
-//     console.log("Landing!");
-//   },
-// };
+//   land: function() {
+//     console.log(`The plane is landing.`)
+//   }
+// }
 
-// cessna152.takeOff();       // Taking off!
-// cessna152.land();          // Landing
+// console.log(cessna152.takeOff())
+
+// // state: fuel capacity and cruising speed
+// // behavior: take off and land
 
 
 // PROBLEM 2
-
-// function Book(name, author, publishedYear) {
-//   this.name = name;
+// function Book(title, author, yearPublished) {
+//   this.title = title;
 //   this.author = author;
-//   this.publishedYear = publishedYear;
+//   this.yearPublished = yearPublished;
 // }
 
-// let neuromancer = new Book("Neuromancer", 'William Gibson', 1984);
-// let doomsdayBook = new Book("Doomsday Book", 'Connie Willis', 1992);
+// let neuromancer = new Book('Neuromancer',	'William Gibson', 1984);
+// let doomsdayBook = new Book('Doomsday Book',	'Connie Willis', 1992);
 
-// console.log(neuromancer)
+// console.log(doomsdayBook);
 
+// // objects created: instances of Book constructor
+// // constructor function: Book
+// // instance objects: neuromancer, doomsdayBook
 
 
 // PROBLEM 3
-
-// function Album(title, artist, released) {
+// function Album(title, artist, releaseYear) {
 //   this.title = title;
 //   this.artist = artist;
-//   this.released = released;
+//   this.releaseYear = releaseYear;
 // }
 
-// let thriller = new Album('Thriller', 'Michael Jackson', 1982);
-// let darkSide = new Album('Dark Side of the Moon', 'Pink Floyd', 1973);
-// console.log(thriller, darkSide)
+// let thriller = new Album('Thriller',	'Michael Jackson', 1982);
+// let darkSideOfTheMoon = new Album('The Dark Side of the Moon',	'Pink Floyd', 1973);
+
+// console.log(darkSideOfTheMoon)
 
 
-// // number 4
-// function SmartPhone(brand, model, released) {
-//   this.brand = brand;
-//   this.model = model;
-//   this.released = released;
-//   this.checkBattery = function() {
-//     console.log('checking battery level');
-//   };
-//   this.displayInfo = function() {
-//     console.log('displaying information');
-//   };
-// }
+// PROBLEM 4
+function SmartPhone(brand, model, releaseYear) {
+  this.brand = brand;
+  this.model = model;
+  this.releaseYear = releaseYear;
 
-// let iPhone12 = new SmartPhone('Apple', 'iPhone 12', 2020);
-// console.log(iPhone12);
-// console.log(iPhone12.checkBattery())
+  this.batteryLevel = function() {
+    console.log('Your phone has 50% battery remaining.');
+  };
+
+  this.info = function() {
+    console.log(`This ${this.brand} ${this.model} was released in ${this.releaseYear}.`)
+  }
+}
+
+let iphone12 = new SmartPhone('Apple', 'iPhone 12', 2020);
+console.log(iphone12.info())
