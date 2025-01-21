@@ -1,29 +1,34 @@
-class Cat {
-  constructor(name, color, age) {
-    this.name = name;
-    this.color = color;
-    this.age = age;
-  }
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    let bar = () => {
+      console.log(this.a + ' ' + this.b);
+    }
 
-  speak() {
-    console.log(
-      `Meow. I am ${this.name}. ` +
-      `I am a ${this.age}-year-old ${this.color} cat.`
-    );
+    // some code
+    bar();
+
+    // some more code
+    bar();
+
+    // still more code
   }
+};
+
+let obj2 = {
+  a: 'goodbye',
+  b: 'world'
 }
 
-let cocoa = new Cat("Cocoa", "black", 5);
-let leo = new Cat("Leo", "orange", 3);
 
-cocoa.speak();
-// Meow. I am Cocoa. I am a 5-year-old black cat.
+function myFunc(word1, word2) {
+  console.log(`${word1} ${word2}!`)
+}
 
-leo.speak();
-// Meow. I am Leo. I am a 3-year-old orange cat.
+console.log(myFunc.prototype)
 
-console.log(cocoa);
-// Cat { name: 'Cocoa', color: 'black', age: 5 }
+let bindedFunc = myFunc.bind(obj, obj.a, obj.b)
+bindedFunc.call(obj2, obj2.a, obj2.b)
 
-console.log(cocoa instanceof Cat);
-// true
+// console.log(obj.hasOwnProperty('a'))
